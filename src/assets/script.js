@@ -26,6 +26,7 @@ const products = [
   }
 ]
 
+/* Exchange Rates array for converting currency */
 const exchangeRates = {
   AED: 3.67308,
   AFN: 73.375223,
@@ -249,7 +250,7 @@ function increaseQuantity (productId) {
 - decreaseQuantity should decrease the quantity of the product
 - if the function decreases the quantity to 0, the product is removed from the cart
 */
-
+/* getProduct function to get product from products/cart list by productID */
 function getProduct (productId, productList) {
   return productList.find((product) => product.productId === productId)
 }
@@ -313,6 +314,8 @@ function pay (amount) {
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.) */
+
+/* currency function for converting currency from USD to selected currency */
 function currency (selectedCurrency) {
   let exchangerate = 1
   switch (selectedCurrency) {
