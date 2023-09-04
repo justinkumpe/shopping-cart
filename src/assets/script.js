@@ -47,7 +47,7 @@ const cart = [];
 */
 
 function addProductToCart(productId) {
-  let product = products.find((product) => product.productId === productId);
+  let product = getProduct(productId, products)
 
   if (!cart.includes(product)) {
     cart.push(product);
@@ -63,7 +63,7 @@ function addProductToCart(productId) {
 - increaseQuantity should then increase the product's quantity
 */
 function increaseQuantity(productId) {
-  let product = cart.find((product) => product.productId === productId);
+  let product = getProduct(productId, cart)
 
   product.quantity++;
 }
@@ -74,8 +74,12 @@ function increaseQuantity(productId) {
 - if the function decreases the quantity to 0, the product is removed from the cart
 */
 
+function getProduct(productId, productList) {
+  return productList.find((product) => product.productId === productId);
+}
+
 function decreaseQuantity(productId) {
-  let product = cart.find((product) => product.productId === productId);
+  let product = getProduct(productId, cart)
   product.quantity -= 1;
 
   if (product.quantity === 0) {
@@ -90,7 +94,7 @@ function decreaseQuantity(productId) {
 */
 
 function removeProductFromCart(productId) {
-  let product = cart.find((product) => product.productId === productId);
+  let product = getProduct(productId, cart)
 
   product.quantity = 0;
 
